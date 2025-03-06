@@ -1,22 +1,24 @@
-// Importaciones necesarias
+require('dotenv').config();
 const express = require('express');
 const admin = require('firebase-admin');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
-const taskServiceKey = require('./taskServiceKey.json');
 const { addDays, addHours, addMinutes, addWeeks } = require("date-fns");
+
+// Convertir la variable de entorno en un objeto JSON
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 
 // Inicializar Firebase Admin
 try {
     admin.initializeApp({
-        credential: admin.credential.cert(taskServiceKey),
-        projectId: 'task-manager-c25bb', // Especificar explícitamente el project_id
+        credential: admin.credential.cert(serviceAccount),
+        projectId: serviceAccount.project_id, // Se obtiene directamente del archivo .env
     });
     console.log('Firebase Admin SDK inicializado correctamente');
 } catch (error) {
     console.error('Error al inicializar Firebase Admin SDK:', error.message);
-    process.exit(1); 
+    process.exit(1);
 }
 
 const db = admin.firestore();

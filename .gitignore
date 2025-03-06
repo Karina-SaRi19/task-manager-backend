@@ -1,3 +1,4 @@
-taskServiceKey.json
 node_modules/
+taskServiceKey.json
 .env
+frontend/
