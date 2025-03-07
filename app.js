@@ -29,7 +29,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: ['https://task-manager-frontend-c9pe.onrender.com'],
+  origin: ['http://localhost:3000', 'https://task-manager-frontend-c9pe.onrender.com'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
