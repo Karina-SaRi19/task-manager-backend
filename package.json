@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "antd": "^5.24.5",
     "bcryptjs": "^3.0.1",
     "cors": "^2.8.5",
     "date-fns": "^4.1.0",
